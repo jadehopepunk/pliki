@@ -15,4 +15,9 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "plugin_name"
   end
 
+  create_table "simple_pages", :force => true do |t|
+    t.text    "body"
+    t.integer "version"
+  end
+
 end
