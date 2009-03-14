@@ -1,2 +1,3 @@
 # Include hook code here
-# include 'rails/route_set.rb'
+require 'models/page.rb'
+require 'rails/route_set.rb'
