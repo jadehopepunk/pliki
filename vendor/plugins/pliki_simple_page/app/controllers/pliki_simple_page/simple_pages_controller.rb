@@ -3,10 +3,14 @@ module PlikiSimplePage
     before_filter :load_simple_page
   
     def show
-      redirect_to(:action => 'edit', :id => '1', :controller => 'pliki_simple_page/simple_pages') unless @simple_page
+      redirect_to(:action => 'edit') unless @simple_page
     end
     
     def edit
+    end
+    
+    def create
+      redirect_to(:action => 'show')
     end
     
     protected
