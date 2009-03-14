@@ -1,4 +1,10 @@
 !!!strict
 %html
   %head
-  %body= yield
+    %title pliki - A pluggable wiki
+    = stylesheet_link_tag 'application'
+  %body
+    %h1 pliki - A pluggable wiki
+    %div= yield
+
+

@@ -1,0 +1,40 @@
+/*-------------------------------------------------
+GENERAL
+-------------------------------------------------*/
+ 
+body {
+  margin: 10px 0 0 0; padding: 0;
+  font-family: verdana, "Lucida Grande", arial, helvetica, sans-serif;
+  color: #333;
+}
+ 
+a:link, a:visited { color: #000; text-decoration: underline; }
+a:hover { color: #fff; background-color: #333; text-decoration: none; }
+  
+pre { width: 100%; padding-bottom: 24px; }
+ 
+h1 {
+        padding: 0;
+        margin: 0 0 20px 0;
+        color: #000;
+        font-size: 16px;
+        font-weight: bold;
+}
+ 
+h2 {
+        margin: 10px 0 1px 0px;
+        font-size: 13px;
+        line-height: 16px;
+        color: #390;
+        font-weight: bold;
+        padding: 0;
+}
+ 
+h3 {
+        margin: 20px 0 3px 0;
+        color: #666;
+        font-size: 11px;
+        padding: 0;
+        font-weight: normal;
+}
+ 

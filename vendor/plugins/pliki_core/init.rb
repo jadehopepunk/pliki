@@ -5,6 +5,7 @@ dir = File.expand_path(File.dirname(__FILE__) + '/lib/')
 
 require File.expand_path(dir + '/ruby/object.rb')
 require File.expand_path(dir + '/rails/plugin')
+require File.expand_path(dir + '/rails/abstract_request')
 require File.expand_path(dir + '/rails/route_set')
 require File.expand_path(dir + '/pliki/plugin')
 
