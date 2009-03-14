@@ -1,6 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.routes_from_plugin(:pliki_simple_page)
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -32,8 +30,4 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
   
-  map.resource :pullins
-
-  map.root :controller => "pullins"
-
 end
