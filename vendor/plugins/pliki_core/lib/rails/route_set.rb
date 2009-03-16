@@ -28,7 +28,7 @@ module ActionController
         end
       
         def get_page_id(segments, path, environment)
-          if segments.length >= 2 && segments[0] == 'page'
+          if segments.length >= 2 && segments[0] == 'pages'
             segments[1]
           else
             raise RoutingError, "No pliki route matches #{path.inspect} with #{environment.inspect}"
@@ -36,7 +36,7 @@ module ActionController
         end
       
         def plugin_path(path)
-          path.gsub(/^\/page\/[^\/?]*/, '')
+          path.gsub(/^\/pages\/[^\/?]*/, '')
         end
       
     end

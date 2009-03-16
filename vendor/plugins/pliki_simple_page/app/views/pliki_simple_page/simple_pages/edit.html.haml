@@ -1,5 +1,5 @@
 %h2 Editing Page
 - form_for :simple_page, @simple_page, :url => {:action => :update} do |f|
-  = textile_editor :simple_page, :body
-  = submit_tag "Save"
+  = f.textile_editor :body
+  = form_footer :edit_simple_page, :cancel_link => {:action => :show}
 = textile_editor_initialize

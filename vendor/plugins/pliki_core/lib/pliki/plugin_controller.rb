@@ -19,7 +19,7 @@ module Pliki
       end
       
       def url_prefix
-        "/page/#{@page.id}"
+        "/pages/#{@page.id}"
       end
     
       def load_page
