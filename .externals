@@ -1,0 +1,8 @@
+[.]
+scm = git
+type = rails
+
+[vendor/plugins/plugin_instances]
+path = vendor/plugins/plugin_instances
+repository = git@github.com:craigambrose/plugin_instances.git
+scm = git
