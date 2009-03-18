@@ -10,7 +10,8 @@ module PlikiSimplePage
     end
     
     def create
-      @simple_page = load_simple_page || SimplePage.new(params[:simple_page])
+      @simple_page = load_simple_page || SimplePage.new
+      @simple_page.attributes = params[:simple_page]
       @success = @simple_page.save
       
       respond_to do |format|

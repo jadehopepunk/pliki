@@ -4,7 +4,7 @@ module ActionController
       class Mapper #:doc:
 
         def plugin_instances(path, options = {})
-          options[:instance_plugin_route] = true
+          path += "/*instance_plugin_route"
           route = PluginInstance::RouteBuilder.new.build(path, options)
           @set.routes << route
           route
