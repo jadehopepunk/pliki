@@ -17,7 +17,7 @@ module Pliki
       end
 
       RESERVED_OPTIONS.each { |k| options.delete(k) }
-
+      
       # Generates the query string, too
       @route_set.generate(options, @request.symbolized_path_parameters)      
     end

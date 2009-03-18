@@ -1,5 +1,5 @@
 module ActionController
-  class AbstractRequest
+  class Request
     attr_accessor :plugin_name
   end
 end

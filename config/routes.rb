@@ -30,4 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
   
+  map.plugin_instances "/pages/:id"
+  map.connect ":controller/:action/:id"
+  
 end
