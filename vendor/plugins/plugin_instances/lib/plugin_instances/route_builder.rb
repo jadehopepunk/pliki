@@ -1,25 +1,5 @@
-module ActionController
-  module Routing
-    class RouteSet #:nodoc:
-      class Mapper #:doc:
 
-        def plugin_instances(path, options = {})
-          path += "/*instance_plugin_route"
-          route = PluginInstance::RouteBuilder.new.build(path, options)
-          @set.routes << route
-          route
-        end
-
-      end
-    end
-  end
-end
-
-
-module PluginInstance
-  class Route < ActionController::Routing::Route
-  end
-  
+module PluginInstances
   class RouteBuilder < ActionController::Routing::RouteBuilder
 
     # Construct and return a route with the given path and options.
@@ -38,13 +18,12 @@ module PluginInstance
       # TODO: Segments should be frozen on initialize
       segments.each { |segment| segment.freeze }
 
-      route = Route.new(segments, requirements, conditions)
+      route = ActionController::Routing::Route.new(segments, requirements, conditions)
 
       route.freeze
     end
 
-  end
-  
+  end  
 end
 
 

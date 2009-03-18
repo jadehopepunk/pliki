@@ -1,4 +1,4 @@
-module Pliki
+module PluginInstances
   class Manager
     class << self
       def instance
@@ -76,7 +76,7 @@ module Pliki
     end
 
     def files_on_load_path(file)
-      pliki_file_exists = false
+      plugin_instances_file_exists = false
       files = []
       load_paths.each do |path|
         full_path = File.join(path, file)
@@ -87,7 +87,7 @@ module Pliki
     end
 
     def directory_on_load_path?(dir_suffix)
-      Pliki::Manager.load_paths.each do |path|
+      PluginInstances::Manager.load_paths.each do |path|
         return true if File.directory?(File.join(path, dir_suffix))
       end
       return false

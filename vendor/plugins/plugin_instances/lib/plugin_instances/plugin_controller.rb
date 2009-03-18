@@ -1,19 +1,20 @@
-module Pliki
+
+module PluginInstances
   class PluginController < ApplicationController
-    attr_accessor :page
+    attr_accessor :plugin_instance
 
     # Factory for the standard create, process loop where the controller is discarded after processing.
-    def self.process_plugin_instance(request, response, page)
-      new.process_plugin_instance(request, response, page)
+    def self.process_plugin_instance(request, response, plugin_instance)
+      new.process_plugin_instance(request, response, plugin_instance)
     end
 
-    def process_plugin_instance(request, response, page)
-      self.page = page
+    def process_plugin_instance(request, response, plugin_instance)
+      self.plugin_instance = plugin_instance
       process(request, response)
     end
   
     def initialize_current_url
-      @url = Pliki::UrlRewriter.new(request, params.clone, route_set)
+      @url = PluginInstances::UrlRewriter.new(request, params.clone, route_set)
     end
 
     def url_for(options = {})
@@ -29,16 +30,17 @@ module Pliki
       end
       
       def url_prefix
-        "/pages/#{@page.id}"
+        "/pages/#{plugin_instance.id}"
       end
     
       def route_set
-        Pliki::PluginRouteSetManager.routes_for(plugin_name)
+        PluginInstances::RouteSetManager.routes_for(plugin_name)
       end
       
       def plugin_name
-        page.plugin_name
+        plugin_instance.plugin_name
       end
     
   end
 end
+

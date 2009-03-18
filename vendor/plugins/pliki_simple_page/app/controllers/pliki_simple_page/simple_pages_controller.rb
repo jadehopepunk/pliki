@@ -1,5 +1,5 @@
 module PlikiSimplePage
-  class SimplePagesController < Pliki::PluginController
+  class SimplePagesController < PluginInstances::PluginController
     before_filter :load_simple_page, :only => [:show, :edit]
   
     def show
@@ -26,7 +26,7 @@ module PlikiSimplePage
     protected
         
       def load_simple_page
-        @simple_page = SimplePage.find_by_id(params[:plugin_page_id])
+        @simple_page = SimplePage.find_by_id(params[:plugin_instance_id])
       end
   
   end

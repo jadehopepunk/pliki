@@ -11,9 +11,17 @@
 
 ActiveRecord::Schema.define(:version => 0) do
 
-  create_table "pages", :force => true do |t|
+  create_table "plugin_instances", :force => true do |t|
     t.string "plugin_name"
   end
+
+  create_table "simple_page_versions", :force => true do |t|
+    t.integer "simple_page_id"
+    t.integer "version"
+    t.text    "body"
+  end
+
+  add_index "simple_page_versions", ["simple_page_id"], :name => "index_simple_page_versions_on_simple_page_id"
 
   create_table "simple_pages", :force => true do |t|
     t.text    "body"

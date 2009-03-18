@@ -1,4 +1,4 @@
-Pliki::PluginRouteSetManager.routes_for('pliki_simple_page').draw do |map|
+PluginInstances::RouteSetManager.routes_for('pliki_simple_page').draw do |map|
     
   map.namespace :pliki_simple_page do |pliki_simple_page|
     pliki_simple_page.resource :simple_page

@@ -1,5 +1,5 @@
-module Pliki
-  class Plugin # nodoc
+module PluginInstances
+  class Plugin
     attr_reader :name, :path
     def initialize(path)
       @path = File.expand_path(path)

@@ -22,7 +22,7 @@ class Object
 
   private
   def __each_matching_file(file)
-    files = Pliki::Manager.instance.files_on_load_path(file)
+    files = PluginInstances::Manager.instance.files_on_load_path(file)
     pliki_file_exists = files.empty? ? false : true
     files.each do |component_file|
       yield(component_file)

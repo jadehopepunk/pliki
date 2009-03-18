@@ -27,7 +27,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.plugins = [ :plugin_migrations, :pliki_core, :all ]
+  config.plugins = [ :plugin_migrations, :plugin_instances, :pliki_core, :all ]
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )

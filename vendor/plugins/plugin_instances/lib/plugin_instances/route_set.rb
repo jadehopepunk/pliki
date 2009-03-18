@@ -1,5 +1,5 @@
-module Pliki
-  class PluginRouteSet < ActionController::Routing::RouteSet
+module PluginInstances
+  class RouteSet < ActionController::Routing::RouteSet
     
     def initialize(plugin_name)
       super()

@@ -1,4 +1,4 @@
-module Pliki
+module PluginInstances
   class UrlRewriter < ActionController::UrlRewriter
 
     def initialize(request, parameters, route_set)

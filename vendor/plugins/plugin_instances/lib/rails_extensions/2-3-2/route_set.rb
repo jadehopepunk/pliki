@@ -24,61 +24,44 @@ module ActionController
       protected
 
         def call_instance_plugin(request, env)
-          request, controller_class, page = load_instance_plugin_request(request)
+          request, controller_class, plugin_instance = load_instance_plugin_request(request)
           
           # RAILS HACK: For global rescue to have access to the original request and response          
           request = env["action_controller.rescue.request"] ||= request
           response = env["action_controller.rescue.response"] ||= Response.new          
           
-          controller_class.process_plugin_instance(request, response, page)
+          controller_class.process_plugin_instance(request, response, plugin_instance)
         end
 
         def load_instance_plugin_request(request)
           environment = extract_request_environment(request)
           segments = to_plain_segments(request.path)
           
-          page_id = get_page_id(segments, request.path, environment)
-          page = get_page(page_id)
-          route_set = Pliki::PluginRouteSetManager.routes_for(page.plugin_name)
+          plugin_instance_id = get_plugin_instance_id(segments, request.path, environment)
+          plugin_instance = find_plugin_instance(plugin_instance_id)
+          route_set = PluginInstances::RouteSetManager.routes_for(plugin_instance.plugin_name)
           
-          new_params = route_set.recognize_path(plugin_path(request.path), environment).merge(:plugin_page_id => page_id)
+          new_params = route_set.recognize_path(plugin_path(request.path), environment).merge(:plugin_instance_id => plugin_instance_id)
           request.path_parameters = new_params.with_indifferent_access
           
-          [request, "#{new_params[:controller].camelize}Controller".constantize, page]
+          [request, "#{new_params[:controller].camelize}Controller".constantize, plugin_instance]
         end
         
-        
-        
-        # def recognize_path_with_plugin_routing(path, environment={})
-        #   params = recognize_path_without_plugin_routing(path, environment)
-        #   raise params.inspect
-        # 
-        #   segments = to_plain_segments(path)
-        #   
-        #   page_id = get_page_id(segments, path, environment)
-        #   page = get_page(page_id)
-        #   
-        #   route_set = Pliki::PluginRouteSetManager.routes_for(page.plugin_name)
-        #   params = route_set.recognize_path_without_plugin_routing(plugin_path(path), environment)
-        #   [params.merge(:plugin_page_id => page_id), page.plugin_name]
-        # end
-        # 
-        # alias_method_chain :recognize_path, :plugin_routing
-        
-      
-        def get_page(page_id)
-          Page.find(page_id)
+        def find_plugin_instance(plugin_instance_id)
+          PluginInstance.find(plugin_instance_id)
         end
       
-        def get_page_id(segments, path, environment)
+        def get_plugin_instance_id(segments, path, environment)
+          # TODO: pages shouldn't be hard coded
           if segments.length >= 2 && segments[0] == 'pages'
             segments[1]
           else
-            raise RoutingError, "No pliki route matches #{path.inspect} with #{environment.inspect}"
+            raise RoutingError, "No Plugin Instance route matches #{path.inspect} with #{environment.inspect}"
           end
         end
       
         def plugin_path(path)
+          # TODO: pages shouldn't be hard coded
           path.gsub(/^\/pages\/[^\/?]*/, '')
         end
       
