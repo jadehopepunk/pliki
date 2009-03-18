@@ -18,7 +18,7 @@ module PluginInstances
       # TODO: Segments should be frozen on initialize
       segments.each { |segment| segment.freeze }
 
-      route = ActionController::Routing::Route.new(segments, requirements, conditions)
+      route = Route.new(path, segments, requirements, conditions)
 
       route.freeze
     end

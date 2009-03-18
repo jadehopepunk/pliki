@@ -1,15 +1,16 @@
 
 module PluginInstances
   class PluginController < ApplicationController
-    attr_accessor :plugin_instance
+    attr_accessor :plugin_instance, :parent_route
 
     # Factory for the standard create, process loop where the controller is discarded after processing.
-    def self.process_plugin_instance(request, response, plugin_instance)
-      new.process_plugin_instance(request, response, plugin_instance)
+    def self.process_plugin_instance(request, response, plugin_instance, parent_route)
+      new.process_plugin_instance(request, response, plugin_instance, parent_route)
     end
 
-    def process_plugin_instance(request, response, plugin_instance)
+    def process_plugin_instance(request, response, plugin_instance, parent_route)
       self.plugin_instance = plugin_instance
+      self.parent_route = parent_route
       process(request, response)
     end
   
@@ -30,7 +31,7 @@ module PluginInstances
       end
       
       def url_prefix
-        "/pages/#{plugin_instance.id}"
+        parent_route.plugin_instance_url_prefix(plugin_instance.id)
       end
     
       def route_set
