@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer "simple_page_id"
     t.integer "version"
     t.text    "body"
+    t.integer "plugin_instance_id"
   end
 
   add_index "simple_page_versions", ["simple_page_id"], :name => "index_simple_page_versions_on_simple_page_id"
 
   create_table "simple_pages", :force => true do |t|
     t.text    "body"
+    t.integer "plugin_instance_id"
     t.integer "version"
   end
 

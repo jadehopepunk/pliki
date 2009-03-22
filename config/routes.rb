@@ -31,6 +31,6 @@ ActionController::Routing::Routes.draw do |map|
   #   end
   
   map.plugin_instances "/pages/:id"
-  map.connect ":controller/:action/:id"
+  # map.connect ":controller/:action/:id"
   
 end

@@ -10,23 +10,21 @@ module PlikiSimplePage
     end
     
     def create
-      @simple_page = load_simple_page || SimplePage.new
+      @simple_page = load_simple_page || SimplePage.new(:plugin_instance_id => plugin_instance.id)
       @simple_page.attributes = params[:simple_page]
       @success = @simple_page.save
       
-      respond_to do |format|
-        if @success 
-          format.html { redirect_to(:action => 'show') }        
-        else
-          render :action => :edit
-        end
-      end      
+      if @success 
+        redirect_to(:action => 'show')
+      else
+        render :action => :edit
+      end
     end
     
     protected
         
       def load_simple_page
-        @simple_page = SimplePage.find_by_id(params[:plugin_instance_id])
+        @simple_page = SimplePage.find_by_id(plugin_instance.id)
       end
   
   end

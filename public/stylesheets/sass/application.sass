@@ -1,0 +1,75 @@
+!fixed_width= 980px
+
+!anchor_light= #FF6633
+!anchor_dark= #CC3300
+
+!heading= #333399
+
+!error_text= #DD3C10
+!error_background= #fff9d7 
+!error_border= #e2c822
+ 
+body
+  :margin 0
+  :padding 0
+  :font-family verdana, "Lucida Grande", arial, helvetica, sans-serif
+  :color #333
+  :background-color #EEE
+  :line-height 120%
+ 
+a:link, a:visited
+  :color= !anchor_dark
+  :text-decoration underline
+  
+a:hover
+  :color= !anchor_light
+  :text-decoration underline
+  
+pre
+  :width 100%
+  :padding-bottom 24px
+ 
+h1
+  :font-size 16pt
+  :font-weight bold
+ 
+h2
+  :font-size 13pt
+  :font-weight bold
+  :color= !heading
+ 
+h3
+  :font-size 13pt
+  :font-weight normal
+  :color= !heading
+
+#header_contents, #page_body_contents
+  :width= !fixed_width
+  :margin 0 auto
+  :padding 10px
+
+#header
+  :background-image url('../images/gradient_top.png')
+  :background-repeat repeat-x
+  :background-color #383838
+  :width 100%
+  :height 100px
+  :top 0px
+  
+#header_contents
+  :color #EEE
+  
+#page_body
+  :padding 20px 0
+
+#page_body_contents
+  :background-color #FFF
+  
+.formError
+  :color= !error_text
+  :background-color= !error_background
+  :border-color= !error_border
+  :border-style solid
+  :border-width 2px
+  :margin 5px 0
+  :padding 3px 6px

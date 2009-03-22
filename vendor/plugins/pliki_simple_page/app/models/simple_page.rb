@@ -3,6 +3,6 @@
 # end
 
 class SimplePage < ActiveRecord::Base
-  
+  validates_presence_of :body, :plugin_instance_id
   
 end
