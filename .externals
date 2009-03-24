@@ -6,3 +6,8 @@ type = rails
 path = vendor/plugins/plugin_instances
 repository = git@github.com:craigambrose/plugin_instances.git
 scm = git
+
+[vendor/plugins/pliki_simple_page]
+path = vendor/plugins/pliki_simple_page
+repository = git@github.com:craigambrose/pliki_simple_page.git
+scm = git
