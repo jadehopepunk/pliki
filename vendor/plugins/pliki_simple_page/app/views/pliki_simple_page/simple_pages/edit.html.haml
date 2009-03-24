@@ -1,5 +1,5 @@
 %h2 Editing Page
-- form_for :simple_page, @simple_page, :url => {:action => :create, :controller => "pliki_simple_page/simple_pages"} do |f|
+- form_for :simple_page, @simple_page, :url => {:action => :create, :controller => "simple_pages"} do |f|
   = f.textile_editor :body
   = form_footer :edit_simple_page, :cancel_link => {:action => :show}
 = textile_editor_initialize
