@@ -1,4 +1,4 @@
 config/database.yml
 log/*.log
 tmp/*
-vendor/plugin/plugin_instances
+vendor/plugins/plugin_instances
