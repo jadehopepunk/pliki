@@ -13,5 +13,9 @@ module Pliki
       permalink
     end
     
+    def name_from_permalink
+      permalink.gsub('-', '_').titleize
+    end    
+        
   end
 end
