@@ -11,6 +11,14 @@
 
 ActiveRecord::Schema.define(:version => 0) do
 
+  create_table "pliki_nodes", :force => true do |t|
+    t.string  "name"
+    t.string  "permalink"
+    t.integer "plugin_instance_id"
+  end
+
+  add_index "pliki_nodes", ["permalink"], :name => "index_pliki_nodes_on_permalink"
+
   create_table "plugin_instances", :force => true do |t|
     t.string "plugin_name"
   end
