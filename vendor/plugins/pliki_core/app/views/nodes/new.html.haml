@@ -1,1 +1,11 @@
 %h1= "Creating Page: \"#{@node.name_from_permalink}\""
+%p This page doesn't exist yet, but you can create it now.
+%h2 What sort of page would you like this to be?
+%ul.node_type_list
+  %li.node_type
+    %h3 Simple Page
+    %p Make this is a simple page of text and images
+    -form_for @node, :url => {:action => :create} do |f|
+      =f.hidden_field :permalink
+      =f.hidden_field :plugin_name, :value => 'pliki_simple_page'
+      =f.submit 'Create'

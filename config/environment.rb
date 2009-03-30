@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth"
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
                
-  config.plugins = [ :plugin_migrations, :plugin_instances, :pliki_core, :all ]
+  config.plugins = [ :plugin_migrations, :plugin_instances, :permalink_fu, :pliki_core, :all ]
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )

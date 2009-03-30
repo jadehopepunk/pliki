@@ -33,7 +33,7 @@ module Pliki
         end
       
         def name_to_permalink(name)
-          name.underscore.gsub(' ', '_').squeeze('_')
+          name.underscore.gsub(' ', '_').squeeze('_').dasherize
         end
       
         def name_from_placeholder(placeholder)
